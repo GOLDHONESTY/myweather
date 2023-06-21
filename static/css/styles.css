@@ -1,0 +1,218 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */
+#maincontainer {
+	position: relative;
+    position: relative;
+    display: flex;
+	height: 100%;
+	min-height: 100vh;
+	flex-wrap: wrap;
+	width: 100%;
+  }
+  
+  #background-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+  }
+  
+/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */
+
+
+#degre{
+	font-size: 100px;
+}
+
+
+
+.leftcontent{
+	width: 62%;
+	padding-top: 30px;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	color: white;
+}
+
+.rightcontent{
+	width: 38%;
+	background-color: #eee;
+	opacity: 0.6;
+}
+
+.deg{
+	margin-top: 20vh;
+	display: none;
+}
+
+.mostly{
+	margin-top: 10px;
+	font-size: 30px;
+}
+
+.day{
+	font-size: 16px;
+}
+
+.week{
+	margin-top: 18px;
+	padding-left: 20px;
+	display: flex;
+}
+
+.wholeweek {
+    margin-top: 19px;
+	display: none;
+}
+
+.weekhr{
+	width: 87%;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.weekimg{
+	width:70px;
+	height:70px;
+}
+
+.imgdiv{
+	margin-left: 40%;
+}
+
+.weeklft{
+	width: 30%;
+    margin-left: 10px;
+}
+
+.leftdiv{
+	width: 40%;
+}
+
+.leftdiv{
+	margin-left: 20px;
+}
+
+#searchdiv{
+	margin-top: 50px;
+	width: 50%;
+}
+
+#searchinput{
+	width: 78%;
+	display: none;
+	padding: 5px;
+	height: 20px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	border-right: none;
+	border: 3px solid #8e96ad;
+}
+
+#searchinput::placeholder{
+	color: #d3d7e3;
+	opacity: 1;
+}
+
+#searchbutton{
+	padding: 5px;
+	border-radius: 0 5px 5px 0;
+	border-style: none;
+	cursor: pointer;
+	background-color: #8e96ad;
+	padding: 5px;
+	height: 35px;
+	display: none;
+}
+
+.leftleftdiv{
+	display: none;
+}
+
+/*tablets*/
+
+
+@media only screen and (max-width: 600px) {
+	.leftcontent{
+	width: 55%;
+	padding-top: 30px;
+	display: block;
+
+}
+
+.rightcontent{
+	width: 45%;
+}
+
+.weeklft{
+	width: 20%;
+}
+
+#searchdiv{
+	position: absolute;
+	top: 20px;
+	margin-top: 0px;
+	margin-left: 20px;
+}
+
+.leftleftdiv{
+	margin-top: 70px;
+}
+
+#searchinput{
+	width: 70%;	
+	
+}
+
+
+.deg{
+	margin-top: 35vh;
+
+}
+
+}
+
+
+
+/*mobile*/
+
+@media only screen and (max-width: 450px) {
+
+	#maincontainer{
+	display: block;
+}
+
+
+.leftcontent{
+	width: 100%;
+}
+
+.leftleftdiv {
+	margin-top: 55px;
+}
+
+.rightcontent {
+    padding: 5px 0 10px 0;
+    width: 100%;
+}
+
+#searchdiv{
+	width: 100%;
+}
+
+.deg{
+	margin-top: 50px;
+	padding-bottom: 20px;
+}
+
+
+
+}

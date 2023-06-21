@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="maincontainer">
+		<img src="{% static 'image/back1.jpg' %}" alt="Photo by li bin: https://www.pexels.com/photo/foggy-view-of-a-mountain-15950309/" id="background-image">
+		<div class="leftcontent">
+			<div class="leftdiv">
+				<div class="leftleftdiv">
+					{% if not currentdata %}
+					<p class="day">{{day}}</p>
+					<p class="day">{{month}}, {{year}}</p>
+					{% endif %}
+					{% if currentdata %}
+					<p class="day">{{currentdata.day}}</p>
+					<p class="day">{{currentdata.month}}, {{currentdata.year}}</p>
+					<p class="mostly"> {{currentdata.main}}</p>
+					<p class="mostly">{{currentdata.description}}</p>
+					<img class="weekimg" src="http://openweathermap.org/img/w/{{currentdata.icon}}.png" alt="{{currentdata.description}}">
+					{% endif %}
+				</div>
+				<div class="deg">
+					{% if currentdata %}
+					<p id="degre">{{currentdata.temp}}&degC</p>
+					<p>{{currentdata.city}}</p>
+					{% else %}
+					<p id="degre">&degC</p>
+					<p>search for city</p>
+					{% endif %}
+				</div>
+			</div>
+			<div id="searchdiv">
+				<p style="color: red;">{{message}}</p>
+				<form action="" method="post">
+					{% csrf_token %}
+					<input id="searchinput" type="text" placeholder="search for a City" name="searchcity"><button type="submit" id="searchbutton"><i class="fa fa-search" style="color: #fff; padding-right: 5px;"></i></button>
+				</form>
+			</div>
+		</div>
+		<div class="rightcontent">
+			<div class="wholeweek">
+				{% if forecasts_data %}
+				{% for forcast in forecasts_data %}
+				<div class="week">
+					<div class="weeklft">
+						<p>{{forcast.date}}</p>
+						<p>{{forcast.description}}</p>
+						<h1>{{forcast.temperature}}&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="http://openweathermap.org/img/w/{{forcast.icon}}.png" alt="{{forcast.description}}">
+					</div>
+				</div>
+				<hr class="weekhr">
+				{% endfor %}
+				{% else %}
+
+				<div class="week">
+					<div class="weeklft">
+						<p>Day 1</p>
+						<p>description</p>
+						<h1>&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="{% static 'image/sun.png' %}">
+					</div>
+				</div>
+				<hr class="weekhr">
+
+				<div class="week">
+					<div class="weeklft">
+						<p>Day 2</p>
+						<p>description</p>
+						<h1>&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="{% static 'image/sun.png' %}">
+					</div>
+				</div>
+				<hr class="weekhr">
+
+				<div class="week">
+					<div class="weeklft">
+						<p>Day 3</p>
+						<p>description</p>
+						<h1>&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="{% static 'image/sun.png' %}">
+					</div>
+				</div>
+				<hr class="weekhr">
+
+				<div class="week">
+					<div class="weeklft">
+						<p>Day 4</p>
+						<p>description</p>
+						<h1>&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="{% static 'image/sun.png' %}">
+					</div>
+				</div>
+				<hr class="weekhr">
+
+				<div class="week">
+					<div class="weeklft">
+						<p>Day 5</p>
+						<p>description</p>
+						<h1>&degC</h1>
+					</div>
+					<div class="imgdiv">
+						<img class="weekimg" src="{% static 'image/sun.png' %}">
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+
+<script src="{% static 'js/jscript.js' %}"></script>
+</body>
+</html>
